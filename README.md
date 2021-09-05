@@ -22,6 +22,12 @@ npm start
   2. Highlights can be grouped in buckets
   3. Highlights can move from one bucket to another
   4. Zoom In/ Zoom Out of whiteboard, resizing the idea management tool components themselves
-  5. Changes persist even after reloading 
+  5. Changes persist even after reloading
+ 
+ <img src="https://user-images.githubusercontent.com/66828073/132133371-827fd2a4-237c-4a14-8ccd-cc7af8d32a48.png" />
+ <img src="https://user-images.githubusercontent.com/66828073/132133380-dc12a765-fe74-4421-a09d-f21e6d75efbd.png" />
+ 
+#### Built Using
+ReactJS :- ReactJs is used to make the entire front end, since it allows me to use hooks and other modern features that make the website look smooth with no reloading whatsover like in a traditional Website.
 
 
