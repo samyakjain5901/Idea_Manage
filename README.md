@@ -17,4 +17,11 @@ npm start
 ```
   3. Now the app will run on `localhost:3000`
 
+#### Features
+  1. Add/ Remove/ Edit highlights
+  2. Highlights can be grouped in buckets
+  3. Highlights can move from one bucket to another
+  4. Zoom In/ Zoom Out of whiteboard, resizing the idea management tool components themselves
+  5. Changes persist even after reloading 
+
 
