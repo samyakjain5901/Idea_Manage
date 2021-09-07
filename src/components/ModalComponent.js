@@ -82,7 +82,7 @@ class IdeaModal extends Component {
 
   render() {
     const list = this.props.allBuckets.map((note) => {
-      return <option>{note.id}</option>;
+      return <option key={note.id}>{note.id}</option>;
     });
     return (
       <React.Fragment>

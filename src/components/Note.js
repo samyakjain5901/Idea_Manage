@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "reactstrap";
 
-export default function Note({ id,editNoteFromBucket, deleteNodeFromList, bucketId, mainContent = "mainContent", userName = "userName", color = "#FFFFFF", allBucket }) {
+export default function Note({ id, showGroupedData, editNoteFromBucket, deleteNodeFromList, bucketId, mainContent = "mainContent", userName = "userName", color }) {
   function deleteNote() {
     deleteNodeFromList(bucketId, id);
   }
@@ -9,7 +9,8 @@ export default function Note({ id,editNoteFromBucket, deleteNodeFromList, bucket
     editNoteFromBucket(bucketId, id, userName, mainContent, color);
   }
   return (
-    <div className="highlight" style={{backgroundColor: color}}>
+    <div className="highlight" style={{backgroundColor: color, paddingLeft: '15px'}}>
+      {!showGroupedData ? <span className="note-head">{bucketId}</span>: <span></span>}
       <p>{mainContent}</p>
       <p>- {userName}</p>
       <Button color="link" onClick={deleteNote}>

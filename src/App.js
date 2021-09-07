@@ -1,21 +1,14 @@
 import React, { Component } from "react";
-
 import "./App.css";
-import Bucket from "./components/Bucket";
 import Main from "./components/MainComponent";
-import Note from "./components/Note";
+import { DragDropContext } from "react-beautiful-dnd";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        {/* <Note /> */}
-        {/* <Bucket /> */}
-        
-        <Main />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <Main />
+    </div>
+  );
 }
 
 export default App;

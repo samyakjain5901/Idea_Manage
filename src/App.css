@@ -1,54 +1,64 @@
-body{
-    background-color: #D3E3F3;
+body {
+  background-color: #d3e3f3;
 }
 
-#add-btn{
-    float: right;
+#add-btn {
+  float: right;
 }
 
-.fa-trash, .fa-pencil{
-    color: brown;
-    float: right;
+.fa-trash,
+.fa-pencil {
+  color: brown;
+  float: right;
 }
 
-.header{
-    font-size: 1.7rem;
-    font-weight: bolder;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.header {
+  font-size: 1.7rem;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.group{
-    text-align: center;
-    display: inline-block;
-    width: 46%;
-    background-color: #ECECEC;
-    padding: 2px;
-    margin: 5px;
+.group {
+  display: inline-block;
+  width: 46%;
+  background-color: #ececec;
+  padding: 2px;
+  margin: 5px;
 }
 
-.highlight{
-    display: inline-block;
-    width: 175px;
-    margin: 5px;
-    word-wrap: break-word;
-    padding: 6px;
+.highlight {
+  display: inline-block;
+  width: 170px;
+  word-wrap: break-word;
+  padding: 6px;
+  margin-top: 8px;
 }
 
-.head-box{
-    background-color: goldenrod;
+.head-box {
+  background-color: white;
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid black;
 }
 
-.zoomout{
-    position: absolute;
-    top: 5px;
-    left: 50px;
-    padding: 2px;
-    color: black;
+.zoomout {
+  position: absolute;
+  top: 5px;
+  left: 50px;
+  padding: 2px;
+  color: black;
 }
 
-.zoomin{
-    position: absolute;
-    top: 5px;
-    padding: 2px;
-    color: black;
+.zoomin {
+  position: absolute;
+  top: 5px;
+  padding: 2px;
+  color: black;
+}
+
+.note-head {
+  background-color: grey;
+  padding: 3px;
+  color: white;
+  border-radius: 3px;
 }
