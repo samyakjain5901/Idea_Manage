@@ -1,5 +1,4 @@
 import React from "react";
-import GridLayout from "react-grid-layout";
 
 export default function OutsideWrapper({ showGroupedData, children }) {
   // const layout = [{ i: "a", x: 4, y: 0, w: 1, h: 2 }];

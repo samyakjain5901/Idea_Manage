@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "./Note";
 import { Draggable } from "react-beautiful-dnd";
+import CustomDrag from "react-drag-element";
 // import OutsideWrapper from "./OutsideWrapper";
 
 export default function Bucket({
@@ -18,35 +19,39 @@ export default function Bucket({
         {allNotes &&
           allNotes.map((eachNote) => {
             return (
-              <div style={{ width: "175px", display: "inline-block" }}>
-                <Draggable
-                  key={eachNote.id}
-                  draggableId={eachNote.id}
-                  index={eachNote.id}
-                >
-                  {(provided) => (
-                    <div
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      ref={provided.innerRef}
-                    >
-                      <Note
-                        showGroupedData={showGroupedData}
-                        bucketId={id}
-                        id={eachNote.id}
-                        mainContent={eachNote.body}
-                        userName={eachNote.name}
-                        color={eachNote.color}
-                        allBuckets={allBuckets}
-                        deleteNodeFromList={deleteNoteFromBucket}
-                        editNoteFromBucket={editNoteFromBucket}
-                      />
-                    </div>
-                  )}
-                </Draggable>
-              </div>
+              <CustomDrag dragItemId={eachNote.id} dragId={"draggable-area-id"}>
+                <div style={{ width: "170px", display: "inline-block" }}>
+                  <Draggable
+                    key={eachNote.id}
+                    draggableId={eachNote.id}
+                    index={eachNote.id}
+                  >
+                    {(provided) => (
+                      <div
+                        id="draggable-area-id"
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        <Note
+                          showGroupedData={showGroupedData}
+                          bucketId={id}
+                          id={eachNote.id}
+                          mainContent={eachNote.body}
+                          userName={eachNote.name}
+                          color={eachNote.color}
+                          allBuckets={allBuckets}
+                          deleteNodeFromList={deleteNoteFromBucket}
+                          editNoteFromBucket={editNoteFromBucket}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                </div>
+              </CustomDrag>
             );
           })}
+
         {/* </OutsideWrapper> */}
       </React.Fragment>
     );
