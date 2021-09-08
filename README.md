@@ -28,6 +28,8 @@ npm start
  <img src="https://user-images.githubusercontent.com/66828073/132480906-1eceec53-dd76-44db-88cf-b1c0c2b6da35.png" />
  <img src="https://user-images.githubusercontent.com/66828073/132480922-88b9a120-4831-460c-a510-a9bde5132273.png" />
  <img src="https://user-images.githubusercontent.com/66828073/132480967-0d77e8b0-2003-40e0-adb1-82ffcfce1c2e.png" />
+ 
+ ##### Use Ctrl + Left Click to select a hightlight, and release Ctrl button to enter new group name. Press Enter & the highlights will be added.
  <img src="https://user-images.githubusercontent.com/66828073/132480989-71936487-7dfb-44b9-8ef3-88a8b2d5760c.png" />
  
 #### Built Using
