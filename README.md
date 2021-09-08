@@ -23,7 +23,7 @@ npm start
   3. Highlights can move from one bucket to another
   4. Zoom In/ Zoom Out of whiteboard, resizing the idea management tool components themselves
   5. Changes persist even after reloading
-  #### 6. Use Ctrl + Left Click to select a hightlight, and release Ctrl button to enter new group name. Press Enter & the highlights will be added.
+  6. <b> Use Ctrl + Left Click to select a hightlight, and release Ctrl button to enter new group name. Press Enter & the highlights will be added. </b>
  
  <img src="https://user-images.githubusercontent.com/66828073/132480856-a8a9c52c-34ae-4922-a387-a9c7ca4331c9.png" />
  <img src="https://user-images.githubusercontent.com/66828073/132480906-1eceec53-dd76-44db-88cf-b1c0c2b6da35.png" />
