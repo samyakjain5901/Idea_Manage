@@ -46,7 +46,9 @@ export default class AllBuckets extends Component {
         !this.state.isModalOpen
       ) {
         const bucketId = prompt("Enter New Bucket Name");
-        this.createNewBucketForSelectedNotes(bucketId);
+        if (bucketId.length > 0) {
+          this.createNewBucketForSelectedNotes(bucketId);
+        }
         this.setState({ ctrlPressed: false, selectedNotes: [] });
       }
     });
