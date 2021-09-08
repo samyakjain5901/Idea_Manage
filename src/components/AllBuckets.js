@@ -40,16 +40,22 @@ export default class AllBuckets extends Component {
       this.setState({ incomingData: null });
     }
     window.addEventListener("keyup", (e) => {
-      console.log(e);
-      if (e.key === "Control" && !this.props.showGroupedData) {
+      if (
+        e.key === "Control" &&
+        !this.props.showGroupedData &&
+        !this.state.isModalOpen
+      ) {
         const bucketId = prompt("Enter New Bucket Name");
         this.createNewBucketForSelectedNotes(bucketId);
         this.setState({ ctrlPressed: false, selectedNotes: [] });
       }
     });
     window.addEventListener("keydown", (e) => {
-      console.log(e);
-      if (e.key === "Control" && !this.props.showGroupedData) {
+      if (
+        e.key === "Control" &&
+        !this.props.showGroupedData &&
+        !this.state.isModalOpen
+      ) {
         this.setState({ ctrlPressed: true });
       }
     });
