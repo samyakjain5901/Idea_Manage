@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Col, Input, Button } from "reactstrap";
-import {v4 as uuid} from "uuid"
+import {
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Label,
+  Col,
+  Input,
+  Button,
+} from "reactstrap";
+import { v4 as uuid } from "uuid";
 
 class IdeaModal extends Component {
   constructor(props) {
@@ -18,10 +28,8 @@ class IdeaModal extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps !== this.props){
-
+    if (prevProps !== this.props) {
       if (this.props.inComingData) {
-        // console.log({ incomingData: this.props.incomingData });
         const tmp = this.props.inComingData;
         this.setState({
           name: tmp.name,
@@ -30,13 +38,13 @@ class IdeaModal extends Component {
           selectedBucketId: tmp.selectedBucketId,
           createNewBucket: false,
         });
-      }else{
+      } else {
         this.setState({
-          createNewBucket:true,
-          selectedBucketId:"new"
-        })
+          createNewBucket: true,
+          selectedBucketId: "new",
+        });
       }
-      }
+    }
   }
 
   handleInputChange(event) {
@@ -58,12 +66,17 @@ class IdeaModal extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = {
-      id:uuid(),
-      name: this.state.name, 
+      id: uuid(),
+      name: this.state.name,
       body: this.state.body,
-      color: this.state.color
+      color: this.state.color,
     };
-    this.props.addNoteToBucket(this.state.selectedBucketId !== "new" ? this.state.selectedBucketId : this.state.newBucketId, note);
+    this.props.addNoteToBucket(
+      this.state.selectedBucketId !== "new"
+        ? this.state.selectedBucketId
+        : this.state.newBucketId,
+      note
+    );
     this.setState({
       name: "",
       body: "",
@@ -87,7 +100,9 @@ class IdeaModal extends Component {
     return (
       <React.Fragment>
         <Modal isOpen={this.props.open} toggle={this.props.toggleModal}>
-          <ModalHeader toggle={this.props.toggleModal}>Post Your Idea</ModalHeader>
+          <ModalHeader toggle={this.props.toggleModal}>
+            Post Your Idea
+          </ModalHeader>
           <ModalBody>
             <Form>
               <FormGroup row>
@@ -95,13 +110,28 @@ class IdeaModal extends Component {
                   Name
                 </Label>
                 <Col md={6}>
-                  <Input type="text" id="name" name="name" placeholder="Enter Name..." value={this.state.name} onChange={this.handleInputChange} />
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter Name..."
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                  />
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label htmlFor="bucket" md={3}>Select Bucket</Label>
+                <Label htmlFor="bucket" md={3}>
+                  Select Bucket
+                </Label>
                 <Col md={6}>
-                  <Input type="select" name="selectedBucketId" id="selectedBucketId" value={this.state.selectedBucketId} onChange={this.handleInputChange}>
+                  <Input
+                    type="select"
+                    name="selectedBucketId"
+                    id="selectedBucketId"
+                    value={this.state.selectedBucketId}
+                    onChange={this.handleInputChange}
+                  >
                     <option value="new">Create New Bucket</option>
                     {list}
                   </Input>
@@ -110,7 +140,14 @@ class IdeaModal extends Component {
               {this.state.createNewBucket && (
                 <Col md={6}>
                   <FormGroup row>
-                    <Input type="text" id="newBucketId" name="newBucketId" placeholder="Enter Bucket Name..." value={this.state.newBucketId} onChange={this.handleInputChange} />
+                    <Input
+                      type="text"
+                      id="newBucketId"
+                      name="newBucketId"
+                      placeholder="Enter Bucket Name..."
+                      value={this.state.newBucketId}
+                      onChange={this.handleInputChange}
+                    />
                   </FormGroup>
                 </Col>
               )}
@@ -119,7 +156,14 @@ class IdeaModal extends Component {
                   Body
                 </Label>
                 <Col md={6}>
-                  <Input type="textarea" id="body" name="body" rows="6" value={this.state.body} onChange={this.handleInputChange} />
+                  <Input
+                    type="textarea"
+                    id="body"
+                    name="body"
+                    rows="6"
+                    value={this.state.body}
+                    onChange={this.handleInputChange}
+                  />
                 </Col>
               </FormGroup>
               <FormGroup row>
@@ -127,7 +171,13 @@ class IdeaModal extends Component {
                   Page Color
                 </Label>
                 <Col md={2}>
-                  <Input type="color" id="color" name="color" value={this.state.color} onChange={this.handleInputChange} />
+                  <Input
+                    type="color"
+                    id="color"
+                    name="color"
+                    value={this.state.color}
+                    onChange={this.handleInputChange}
+                  />
                 </Col>
               </FormGroup>
             </Form>

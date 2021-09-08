@@ -12,6 +12,8 @@ export default class AllBuckets extends Component {
       inComingData: null,
       isModalOpen: false,
       allBuckets: [],
+      selectedNotes: [],
+      ctrlPressed: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.createNewBucket = this.createNewBucket.bind(this);
@@ -19,6 +21,9 @@ export default class AllBuckets extends Component {
     this.editNoteFromBucket = this.editNoteFromBucket.bind(this);
     this.findNoteFromId = this.findNoteFromId.bind(this);
     this.handleOnDragEnd = this.handleOnDragEnd.bind(this);
+    this.addSelectedNotes = this.addSelectedNotes.bind(this);
+    this.createNewBucketForSelectedNotes =
+      this.createNewBucketForSelectedNotes.bind(this);
   }
 
   toggleModal() {
@@ -34,9 +39,58 @@ export default class AllBuckets extends Component {
       this.setState(JSON.parse(Cookies.get("idea_management")));
       this.setState({ incomingData: null });
     }
+    window.addEventListener("keyup", (e) => {
+      console.log(e);
+      if (e.key === "Control" && !this.props.showGroupedData) {
+        const bucketId = prompt("Enter New Bucket Name");
+        this.createNewBucketForSelectedNotes(bucketId);
+        this.setState({ ctrlPressed: false, selectedNotes: [] });
+      }
+    });
+    window.addEventListener("keydown", (e) => {
+      console.log(e);
+      if (e.key === "Control" && !this.props.showGroupedData) {
+        this.setState({ ctrlPressed: true });
+      }
+    });
+  }
+
+  createNewBucketForSelectedNotes(bucketId) {
+    const allSelectedNotes = this.state.selectedNotes.map(
+      (eachSelectedNote) => {
+        return this.findNoteFromId(
+          eachSelectedNote.noteId,
+          eachSelectedNote.bucketId
+        );
+      }
+    );
+    this.state.selectedNotes.forEach((note) => {
+      this.deleteNoteFromBucket(note.bucketId, note.noteId);
+    });
+    allSelectedNotes.forEach((eachNote) => {
+      this.createNewBucket(bucketId, eachNote);
+    });
+  }
+
+  addSelectedNotes(bucketId, noteId) {
+    if (
+      !this.state.selectedNotes.find(
+        (eachSelectedNote) => eachSelectedNote.noteId === noteId
+      )
+    ) {
+      this.setState({
+        selectedNotes: [...this.state.selectedNotes, { bucketId, noteId }],
+      });
+    } else {
+      const newSelectedNotes = this.state.selectedNotes.filter(
+        (eachSelectedNote) => eachSelectedNote.noteId !== noteId
+      );
+      this.setState({
+        selectedNotes: newSelectedNotes,
+      });
+    }
   }
   createNewBucket(bucketId, note) {
-    //change this from temp to direct setState
     if (
       this.state.allBuckets.find((eachBucket) => eachBucket.id === bucketId)
     ) {
@@ -168,6 +222,7 @@ export default class AllBuckets extends Component {
                     {(provided) => (
                       <div {...provided.droppableProps} ref={provided.innerRef}>
                         <Bucket
+                          addSelectedNotes={this.addSelectedNotes}
                           key={eachBucket.id}
                           showGroupedData={this.props.showGroupedData}
                           id={eachBucket.id}
@@ -175,6 +230,8 @@ export default class AllBuckets extends Component {
                           allBuckets={this.state}
                           deleteNoteFromBucket={this.deleteNoteFromBucket}
                           editNoteFromBucket={this.editNoteFromBucket}
+                          ctrlPressed={this.state.ctrlPressed}
+                          selectedNotes={this.state.selectedNotes}
                         />
                         {provided.placeholder}
                       </div>
