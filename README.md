@@ -1,6 +1,6 @@
 # Idea-Management Tool
 Idea Management Tool is a project to pen down any ideas that strike you, or any important note. <br />
-Checkout the video demo <a href="https://www.youtube.com/watch?v=-4HX8fylA28&t=3s"> Here</a>
+Checkout the video demo <a href="https://www.youtube.com/watch?v=-4HX8fylA28"> Here</a>
 
 <img src="https://user-images.githubusercontent.com/66828073/132477392-eb75e96b-212c-4b6e-8fdf-9f811b609411.png" />
 <img src="https://user-images.githubusercontent.com/66828073/132477359-49bfd07e-57e0-4024-ba86-87e81059dac5.png" />
